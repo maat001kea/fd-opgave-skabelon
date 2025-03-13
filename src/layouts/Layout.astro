@@ -8,11 +8,32 @@ import "../styles/main.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>DIN TITEL HER. MÅSKE SOM PROP?</title>
+    <title>Tema Opgave</title>
   </head>
   <body>
+    <nav class="navbar">
+      <div class="logo">AskExperts</div>
+      <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Case Study</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">About</a></li>
+      </ul>
+      <button class="login-btn">Login</button>
+  </nav>
+
+  
     <slot />
   </body>
+  <footer class="footer">
+    <div class="footer-logo">AskExperts</div>
+    <hr class="footer-line">
+    <div class="footer-text">
+        &copy; 2025 AskExperts. All rights reserved. | 
+        <a href="#">Terms of Service</a> | 
+        <a href="#">Privacy Policy</a>
+    </div>
+</footer>
 </html>
 
 <style></style>

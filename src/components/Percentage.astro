@@ -1,0 +1,206 @@
+---
+const API_URL = "https://frontend-design-theme.netlify.app/api/experience";
+
+let experienceData = {};
+
+try {
+  const response = await fetch(API_URL);
+  experienceData = await response.json();
+} catch (error) {
+  console.error("Error fetching experience data:", error);
+}
+
+const stats = experienceData.stats || [];
+---
+
+<section class="experience-section">
+  <div class="experience-content">
+    <span class="tag">EXPERIENCE</span>
+    <h2>{experienceData.heading}</h2>
+    <p>{experienceData.subheading.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+  </div>
+
+  <div class="experience-circles">
+    {stats.map((stat, index) => (
+      <div class="circle-container" key={index} style={`--num: ${stat.value}`}>
+        <div class="percent">
+          <svg>
+            <circle class="bg" cx="50%" cy="50%" r="50"></circle>
+            <circle class="progress" cx="50%" cy="50%" r="50"></circle>
+          </svg>
+          <div class="number">
+            <h2>{stat.value}%</h2>
+          </div>
+        </div>
+        <p class="circle-label">{stat.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Roboto", sans-serif;
+  }
+}
+
+@layer layout {
+  .experience-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4b728;
+    padding: clamp(3rem, 5vw, 6rem);
+    color: black;
+    border-radius: 12px;
+    text-align: left;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .experience-content {
+    flex: 1 1 40%;
+  }
+
+  .tag {
+    display: inline-block;
+    background: white;
+    color: black;
+    font-weight: bold;
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+
+  .experience-content h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: bold;
+  }
+
+  .experience-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+  }
+
+  .experience-circles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 50%;
+    flex: 1;
+  }
+
+  .circle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+  }
+}
+
+@layer progress {
+  .percent {
+    position: relative;
+    width: clamp(6rem, 12vw, 10rem);
+    height: clamp(6rem, 12vw, 10rem);
+  }
+
+  .percent svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .percent svg circle {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+  }
+
+  .bg {
+    stroke: rgba(255, 255, 255, 0.3);
+  }
+
+  .progress {
+    stroke: white;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    transition: stroke-dashoffset 2s ease-in-out;
+    animation: fillProgress 2s ease-in-out forwards;
+  }
+
+  @keyframes fillProgress {
+    100% {
+      stroke-dashoffset: calc(314 - (314 * var(--num)) / 100);
+    }
+  }
+}
+
+@layer dot-animation {
+  .percent::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: black;
+    border: 3px solid white;
+    transform-origin: center;
+    animation: moveDot 2s ease-in-out forwards;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes moveDot {
+    100% {
+      transform: translate(-50%, -50%) rotate(calc(3.6deg * var(--num))) translate(50%);
+    }
+  }
+
+  .number {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .number h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: bold;
+  }
+}
+
+@layer typography {
+  .circle-label {
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+    font-weight: bold;
+  }
+}
+
+/* Global Spacing Fix using * + * */
+.experience-content * + * {
+  margin-top: 10px;
+}
+
+.experience-circles * + * {
+  margin-left: 0;
+}
+</style>

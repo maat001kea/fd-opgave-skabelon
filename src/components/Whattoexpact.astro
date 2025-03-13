@@ -1,0 +1,121 @@
+---
+const { title, subtitle, description, points, image } = Astro.props;
+---
+
+<section class="whattoexpect">
+    <div class="whattoexpect-container">
+        <!-- Billede med dekorativ baggrund -->
+        <div class="whattoexpect-image">
+            <div class="decorative-bg"></div>
+            <img src="images/whattoexpact.png" alt="Team collaboration">
+        </div>
+
+        <!-- Tekstindhold -->
+        <div class="whattoexpect-content">
+            <span class="highlight-text">WE'LL WORK WITH YOU</span>
+            <h2>What To Expect</h2>
+            <p>
+                Our collaboration is built on transparency, efficiency, and measurable results. 
+                Together, we create strategies tailored to your unique needs and goals.
+            </p>
+            <ul>
+                <li><span class="checkmark">✔</span> Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.</li>
+                <li><span class="checkmark">✔</span> Identify opportunities to optimize processes and implement impactful solutions with measurable results.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    /* What to Expect Section */
+.whattoexpect {
+  /* background-color: #fff; */
+  padding: 80px 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.whattoexpect-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+}
+
+/* Image & Decorative Background */
+.whattoexpect-image {
+  position: relative;
+  flex: 1;
+}
+
+.whattoexpect-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.decorative-bg {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* Content Styling */
+.whattoexpect-content {
+  flex: 1;
+  max-width: 550px;
+}
+
+.highlight-text {
+  display: inline-block;
+  background-color: #f4c542;
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.whattoexpect h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+.whattoexpect p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.whattoexpect ul {
+  list-style: none;
+  padding: 0;
+}
+
+.whattoexpect li {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkmark {
+  color: #3b6625;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+</style>

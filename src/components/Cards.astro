@@ -1,0 +1,96 @@
+
+
+<main>
+
+    <section>
+      <header>
+        <h2>Financial Projections</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </header>
+      
+      <ul role="list">
+        <li>
+          <h3>The Balance Sheet</h3>
+          <p>The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time.</p>
+        </li>
+        
+        <li>
+          <h3>Income Statement</h3>
+          <p>The Income (Profit and Loss) Statement, commonly referred to as the P&L statement, summarizes the revenue and expenses for a specific time period (one month, one quarter, one year, etc.)</p>
+        </li>
+        
+        <li>
+          <h3>Financial Plan</h3>
+          <p>Keep your information current and review the documents on a regular basis (monthly or more often if needed). Review them with key individuals within your company.</p>
+        </li>
+        
+        <li>
+          <h3>Financial Ratios</h3>
+          <p>Ratios are useful when comparing your company with the competition on financial performance and also when benchmarking the performance of your company.</p>
+        </li>
+      </ul>
+  
+    </section>
+  
+  </main>
+
+  <style>
+    section {
+  display: grid;
+  grid-template-columns: 1fr [content] minmax(0, var(--content-width)) 1fr;
+  gap: 20px;
+  
+  > * {
+    grid-column: content;
+  }
+}
+
+ul {
+  grid-column: 1 / -1;
+  scroll-snap-type: inline mandatory;
+  
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  
+  padding-inline: max(20px, 50% - var(--content-width) / 2);
+  scroll-padding-inline-start: max(20px, 50% - var(--content-width) / 2);
+  
+  li {
+    flex-basis: min(90%, 400px);
+    flex-shrink: 0;
+    
+    scroll-snap-align: start;
+    
+    padding: 1rem;
+    border-radius: 8px;
+    background: red;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@layer {
+  html {
+    --content-width: 50rem;
+  }
+  body {
+    min-height: 100svh;
+    font-family: system-ui, sans-serif;
+    display: grid;
+    place-content: center;
+  }
+}
+
+  </style>
