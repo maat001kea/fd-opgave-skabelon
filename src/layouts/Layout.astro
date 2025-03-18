@@ -1,5 +1,6 @@
 ---
 import "../styles/main.css";
+import Login from "../components/Login.astro";
 ---
 
 <html lang="en">
@@ -14,26 +15,25 @@ import "../styles/main.css";
     <nav class="navbar">
       <div class="logo">AskExperts</div>
       <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Case Study</a></li>
-          <li><a href="#">Team</a></li>
-          <li><a href="#">About</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Case Study</a></li>
+        <li><a href="../layouts/Teamssingle.astro">Team</a></li>
+        <li><a href="#">About</a></li>
       </ul>
-      <button class="login-btn">Login</button>
-  </nav>
+      <Login />
+    </nav>
 
-  
     <slot />
   </body>
   <footer class="footer">
     <div class="footer-logo">AskExperts</div>
-    <hr class="footer-line">
+    <hr class="footer-line" />
     <div class="footer-text">
-        &copy; 2025 AskExperts. All rights reserved. | 
-        <a href="#">Terms of Service</a> | 
-        <a href="#">Privacy Policy</a>
+      &copy; 2025 AskExperts. All rights reserved. |
+      <a href="#">Terms of Service</a> |
+      <a href="#">Privacy Policy</a>
     </div>
-</footer>
+  </footer>
 </html>
 
 <style></style>

@@ -1,0 +1,109 @@
+<!-- Login-knap, som aktiverer modalen -->
+<a href="#login-modal" class="login-btn">Login</a>
+
+<!-- Login Modal (Popup-vindue) -->
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <h2>Dashboard Login</h2>
+
+    <!-- Input for e-mail -->
+    <label for="email">Email adresse</label>
+    <input type="email" id="email" placeholder="Indtast din e-mail" />
+
+    <!-- Input for kodeord -->
+    <label for="password">Kodeord</label>
+    <input type="password" id="password" placeholder="Indtast dit kodeord" />
+
+    <!-- Knap til at logge ind -->
+    <button class="login-button">Gå til dashboard</button>
+
+    <!-- Luk-knap, som sender brugeren tilbage til startsiden -->
+    <a href="#" class="close-modal">✖</a>
+  </div>
+</div>
+
+<!-- Baggrundsslør (overlay) -->
+<div id="overlay"></div>
+
+<style>
+  /* Fjerner margin for hele siden */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Baggrunds-slør (kun overlay) */
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Mørkt overlay */
+    backdrop-filter: blur(10px); /* Slører kun baggrunden */
+    display: none; /* Skjult som standard */
+    z-index: 1000; /* Sørger for, at den ligger øverst */
+  }
+
+  /* Modal-popup (loginboks) – UDEN slør-effekt */
+  .modal {
+    display: none; /* Skjules som standard */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111; /* Mørk baggrund */
+    padding: 30px;
+    border-radius: 12px; /* Runde kanter */
+    text-align: center;
+    z-index: 1001; /* Sørger for, at den ligger over overlayet */
+    width: 350px; /* Boksens bredde */
+    color: white;
+  }
+
+  /* Når modal aktiveres (når brugeren klikker på Login-knappen) */
+  .modal:target,
+  .modal:target + #overlay {
+    display: flex; /* Viser modalen + baggrundssløret */
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Indhold i modal */
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Inputfelter til e-mail og kodeord */
+  .modal input {
+    width: 100%; /* Gør inputfelterne brede */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+
+  /* Knap til at logge ind */
+  .login-button {
+    background-color: #ffcc00; /* Gul knap */
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  /* Luk-knap (✖) øverst i modalen */
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+</style>
