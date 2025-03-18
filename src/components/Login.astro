@@ -1,5 +1,5 @@
 <!-- Login-knap, som aktiverer modalen -->
-<a href="#login-modal" class="login-btn">Login</a>
+<a href="#" class="login-btn" id="login-btn">Login</a>
 
 <!-- Login Modal (Popup-vindue) -->
 <div id="login-modal" class="modal">
@@ -16,9 +16,6 @@
 
     <!-- Knap til at logge ind -->
     <button class="login-button">Gå til dashboard</button>
-
-    <!-- Luk-knap, som sender brugeren tilbage til startsiden -->
-    <a href="#" class="close-modal">✖</a>
   </div>
 </div>
 
@@ -27,10 +24,6 @@
 
 <style>
   /* Fjerner margin for hele siden */
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
 
   /* Baggrunds-slør (kun overlay) */
   #overlay {
@@ -44,26 +37,49 @@
     display: none; /* Skjult som standard */
     z-index: 1000; /* Sørger for, at den ligger øverst */
   }
+  /* Input Fields */
+  .modal input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    background: white; /* White input background */
+    color: black; /* Black text inside input */
+    font-size: 16px;
+  }
 
-  /* Modal-popup (loginboks) – UDEN slør-effekt */
+  /* Placeholder Text Styling */
+  .modal input::placeholder {
+    opacity: 1; /* Ensures placeholder is visible */
+  }
+
+  /* Add a slight border effect when input is focused */
+  .modal input:focus {
+    outline: none;
+    border: 2px solid #ffcc00; /* Highlight input on focus */
+  }
+
+  /* Modal-popup (loginboks) */
   .modal {
     display: none; /* Skjules som standard */
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #111; /* Mørk baggrund */
+    background: #181818; /* Mørk grå baggrund som i billedet */
     padding: 30px;
     border-radius: 12px; /* Runde kanter */
     text-align: center;
     z-index: 1001; /* Sørger for, at den ligger over overlayet */
-    width: 350px; /* Boksens bredde */
+    width: 450px; /* Boksens bredde */
     color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Blød skygge for dybde */
   }
 
-  /* Når modal aktiveres (når brugeren klikker på Login-knappen) */
-  .modal:target,
-  .modal:target + #overlay {
+  /* Når modal aktiveres */
+  .modal.active,
+  #overlay.active {
     display: flex; /* Viser modalen + baggrundssløret */
     align-items: center;
     justify-content: center;
@@ -74,6 +90,8 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 
   /* Inputfelter til e-mail og kodeord */
@@ -88,22 +106,41 @@
   /* Knap til at logge ind */
   .login-button {
     background-color: #ffcc00; /* Gul knap */
+    color: #181818;
     border: none;
     padding: 10px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 45px;
     cursor: pointer;
     margin-top: 10px;
-  }
-
-  /* Luk-knap (✖) øverst i modalen */
-  .close-modal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    cursor: pointer;
+    width: 80%;
+    margin: auto;
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Henter elementer
+    const loginBtn = document.getElementById("login-btn");
+    const modal = document.getElementById("login-modal");
+    const overlay = document.getElementById("overlay");
+
+    // Sikrer at elementerne eksisterer før event listeners tilføjes
+    if (loginBtn && modal && overlay) {
+      // Funktion til at åbne modalen
+      loginBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        modal.classList.add("active");
+        overlay.classList.add("active");
+      });
+
+      // Funktion til at lukke modal ved klik udenfor boksen
+      overlay.addEventListener("click", function () {
+        modal.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+    } else {
+      console.error("Et eller flere elementer kunne ikke findes i DOM'en.");
+    }
+  });
+</script>

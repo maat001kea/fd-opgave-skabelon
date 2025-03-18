@@ -1,0 +1,156 @@
+---
+const features = [
+  {
+    icon: "📦", // Replace with actual icon
+    title: "Creative Ideas",
+    description: "Explore innovative strategies tailored to your goals. Unlock unique solutions that inspire growth and creativity. Drive impactful change.",
+  },
+  {
+    icon: "📊",
+    title: "Best Features",
+    description: "Deliver advanced tools designed for seamless integration. Optimize workflows with cutting-edge technology.",
+  },
+  {
+    icon: "🔄",
+    title: "Experience",
+    description: "Leverage years of proven expertise across diverse industries. Empower your business with our skilled professionals. Achieve sustainable success.",
+  },
+  {
+    icon: "⚙️",
+    title: "Easy Solutions",
+    description: "Streamline your challenges with simple, effective solutions. Ensure hassle-free implementation for measurable results.",
+  },
+];
+---
+
+<section class="features-section">
+  <div class="features-header">
+    <span class="badge">GROWING WITH OUR CLIENTS</span>
+    <h2>Our core values & principles</h2>
+    <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+  </div>
+
+  <div class="features-grid">
+    {
+      features.map((feature) => (
+        <div class="feature-card">
+          <div class="feature-icon">{feature.icon}</div>
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+          <a href="#" class="read-more">
+            Read More →
+          </a>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="features-button">
+    <a href="#" class="btn-primary">Get in touch</a>
+  </div>
+</section>
+
+<style>
+  /* General section styles */
+  .features-section {
+    background: #111; /* Dark background */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  /* Header styling */
+  .features-header {
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .badge {
+    background: #ffcc00;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .features-header h2 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+  }
+
+  .features-header p {
+    color: #bbb;
+  }
+
+  /* Features grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 40px auto;
+  }
+
+  .feature-card {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    transition: 0.3s ease-in-out;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    background: black;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .feature-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: black;
+  }
+
+  /* Button */
+  .features-button {
+    margin-top: 20px;
+  }
+
+  .btn-primary {
+    background: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+  }
+
+  .btn-primary:hover {
+    background: #ddd;
+  }
+</style>

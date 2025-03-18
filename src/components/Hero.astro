@@ -6,56 +6,51 @@ import Services from "./Services.astro";
   <!-- Markup her -->
   <div class="hero-content">
     <div class="hero-text">
-        <h1>Empowering Your Business Growth</h1>
-        <p>
-            Discover tailored strategies and expert insights to take your business to the next level. 
-            Let us help you navigate challenges and achieve sustainable success.
-        </p>
-        <button class="hero-btn">Book a Meeting</button>
+      <h1>Empowering Your Business Growth</h1>
+      <p>Discover tailored strategies and expert insights to take your business to the next level. Let us help you navigate challenges and achieve sustainable success.</p>
+      <button class="hero-btn">Book a Meeting</button>
     </div>
     <div class="hero-image">
-        <img src="public/images/heropige.jpg" alt="Hero Image">
+      <img src="public/images/heropige.jpg" alt="Hero Image" />
     </div>
-</div>
+  </div>
 </section>
 <section class="services">
   <div class="service-card">
-      <h3>Finance & Restructuring</h3>
-      <p>Unlock financial clarity and implement effective restructuring strategies.</p>
-      <button>Our Services</button>
+    <h3>Finance & Restructuring</h3>
+    <p>Unlock financial clarity and implement effective restructuring strategies.</p>
+    <button>Our Services</button>
   </div>
 
   <div class="service-card">
-      <h3>Our Approach</h3>
-      <p>Explore our proven methods for achieving growth and resilience.</p>
-      <button>More About</button>
+    <h3>Our Approach</h3>
+    <p>Explore our proven methods for achieving growth and resilience.</p>
+    <button>More About</button>
   </div>
 
   <div class="service-card">
-      <h3>Consultalk Result</h3>
-      <p>Experience actionable insights and measurable results.</p>
-      <button>Explore Our Solution</button>
+    <h3>Consultalk Result</h3>
+    <p>Experience actionable insights and measurable results.</p>
+    <button>Explore Our Solution</button>
   </div>
-
 </section>
-  <!-- <Services /> -->
-  
+<!-- <Services /> -->
 
 <style>
   /* Styles her */
 
-/* Hero Section */
+  /* Hero Section */
 
-/* General Styles */
-body {
+  /* General Styles */
+  body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
-}
+  }
 
-/* Hero Section */
-.hero {
+  /* Hero Section */
+  .hero {
     background-color: #181818;
     color: white;
     display: flex;
@@ -65,34 +60,34 @@ body {
     padding: 40px;
     position: relative; /* Allows overlapping */
     z-index: 1; /* Ensures it's behind the cards */
-}
+  }
 
-.hero-content {
+  .hero-content {
     display: flex;
     max-width: 1200px;
     width: 100%;
     align-items: center;
     justify-content: space-between;
-}
+  }
 
-/* Left Text */
-.hero-text {
+  /* Left Text */
+  .hero-text {
     max-width: 50%;
-}
+  }
 
-.hero-text h1 {
+  .hero-text h1 {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 15px;
-}
+  }
 
-.hero-text p {
+  .hero-text p {
     font-size: 1.1rem;
     color: #ccc;
     margin-bottom: 20px;
-}
+  }
 
-.hero-btn {
+  .hero-btn {
     background-color: white;
     color: black;
     padding: 12px 24px;
@@ -102,21 +97,21 @@ body {
     border-radius: 30px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-}
+  }
 
-.hero-btn:hover {
+  .hero-btn:hover {
     background-color: #ddd;
-}
+  }
 
-/* Right Image */
-.hero-image img {
+  /* Right Image */
+  .hero-image img {
     width: 500px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+  }
 
-/* Services Section */
-.services {
+  /* Services Section */
+  .services {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -124,10 +119,9 @@ body {
     position: relative;
     margin-top: -115px; /* Move it up to overlap */
     z-index: 2; /* Ensure it's above the hero */
-}
+  }
 
-
-.service-card {
+  .service-card {
     background-color: #333;
     color: white;
     padding: 20px;
@@ -135,20 +129,19 @@ body {
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
 
-}
-
-.service-card h3 {
+  .service-card h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-}
+  }
 
-.service-card p {
+  .service-card p {
     font-size: 1rem;
     color: #ccc;
-}
+  }
 
-.service-card button {
+  .service-card button {
     background-color: black;
     color: white;
     padding: 10px 15px;
@@ -156,13 +149,21 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-}
+  }
 
-.service-card button:hover {
+  .service-card button:hover {
     background-color: #555;
-}
-
-
+  }
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .services {
+      display: grid;
+      grid-template-columns: 1fr;
+      scale: 1.2;
+      height: auto;
+      text-align: center;
+      margin: auto;
+      margin-top: 5%;
+    }
+  }
 </style>
-
-

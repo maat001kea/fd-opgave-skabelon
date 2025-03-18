@@ -1,0 +1,200 @@
+---
+const contactInfo = [
+  {
+    icon: "📞",
+    label: "Call Today",
+    info: "+1 800 100 900",
+    color: "bg-yellow-400",
+  },
+  {
+    icon: "⏰",
+    label: "Monday To Friday",
+    info: "9AM – 5PM",
+    color: "bg-green-400",
+  },
+  {
+    icon: "📍",
+    label: "USA Office",
+    info: "195 Devonshire St Boston, MA 02110",
+    color: "bg-gray-300",
+  },
+];
+---
+
+<section class="contact-section relative grid lg:grid-cols-2 items-center gap-12 px-6 lg:px-20 py-16">
+  <!-- Left Side - Contact Info -->
+  <div class="contact-info max-w-lg space-y-6">
+    <span class="badge">PROCESS</span>
+    <h2 class="text-4xl font-bold mt-4 leading-tight">Contact Us. It’s Easy.</h2>
+    <p class="text-gray-500 text-lg">Leverage agile frameworks to provide a robust synopsis for high-level overviews. Iterative approaches to corporate strategy foster collaborative.</p>
+
+    <div class="space-y-6">
+      {
+        contactInfo.map((item) => (
+          <div class="flex items-center gap-4">
+            <span class={`contact-icon ${item.color} flex items-center justify-center w-14 h-14 rounded-full text-2xl`}>{item.icon}</span>
+            <div>
+              <strong class="text-xl">{item.label}</strong>
+              <p class="text-gray-500 text-lg">{item.info}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Right Side - Images -->
+  <div class="contact-images relative flex justify-center lg:justify-end gap-6">
+    <!-- Main Image with Green Box -->
+    <div class="relative">
+      <img src="/images/Image-2.png" alt="Main Contact Image" class="rounded-xl shadow-lg w-80" />
+      <div class="green-box"></div>
+    </div>
+
+    <!-- Side Images with Dotted Pattern -->
+    <div class="relative flex flex-col gap-4">
+      <img src="/images/Image-1.png" alt="Side Image 1" class="rounded-lg shadow-md w-40" />
+      <img src="/images/Image.png" alt="Side Image 2" class="rounded-lg shadow-md w-40" />
+      <div class="dotted-pattern"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* General Section */
+  .contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding: 60px 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  /* Left Side - Contact Info */
+  .contact-info {
+    max-width: 500px;
+  }
+
+  .badge {
+    background: #ffcc00;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .contact-info p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  /* Contact List */
+  .contact-list {
+    margin-top: 20px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 22px;
+  }
+
+  .bg-yellow {
+    background: #ffcc00;
+  }
+
+  .bg-green {
+    background: #4caf50;
+    color: white;
+  }
+
+  /* Right Side - Images */
+  .contact-images {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    position: relative;
+  }
+
+  /* Main Image with Green Box */
+  .main-image {
+    position: relative;
+    width: 280px;
+  }
+
+  .main-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .green-box {
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    width: 80px;
+    height: 80px;
+    background: #4caf50;
+    border-radius: 10px;
+    z-index: -1;
+  }
+
+  /* Side Images */
+  .side-images {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+  }
+
+  .side-images img {
+    width: 130px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Dotted Pattern */
+  .dotted-pattern {
+    position: absolute;
+    top: -30px;
+    right: -10px;
+    width: 220px;
+    height: 220px;
+    background: url("/images/Pattern.png") no-repeat center;
+    background-size: contain;
+    opacity: 0.8; /* Slight transparency */
+    z-index: -1;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .contact-section {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .contact-images {
+      justify-content: center;
+    }
+
+    .side-images {
+      align-items: center;
+    }
+  }
+</style>
