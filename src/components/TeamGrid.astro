@@ -1,0 +1,289 @@
+---
+const { teamData } = Astro.props;
+
+// ✅ Use API image URL directly
+const getImageUrl = (image) => {
+  return image ? image : "https://via.placeholder.com/250x250.webp?text=No+Image";
+};
+---
+
+<section class="team-section">
+  <div class="team-header">
+    <div class="team-text">
+      <h2 class="team-heading">Meet Our Great Team</h2>
+      <p class="team-description">Welcome to our amazing team! We are a group of passionate individuals dedicated to excellence and innovation. Each member brings unique skills and experiences, working together to achieve our goals.</p>
+      <div class="btn-wrapper">
+        <a href="#" class="btn">Join Our Team</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-grid">
+    {
+      teamData.length > 0 ? (
+        teamData.map((member) => (
+          <div class="team-card">
+            <div class="team-card-img">
+              <img src={getImageUrl(member?.img)} alt={member.name || "No Name"} class="team-image" />
+              <div class="badge" data-role={member.title}>
+                {member.title}
+              </div>
+            </div>
+
+            <div class="team-info">
+              <h3 class="team-name">{member.name}</h3>
+              <p class="team-role">{member.description}</p>
+
+              {/* ✅ FIXED: Social Media Icons - Using set:html */}
+              <div class="social-icons">
+                {member.social_links &&
+                  member.social_links.map((social) => (
+                    <a href={social.url} target="_blank" aria-label={social.platform} class="social-link" data-platform={social.platform}>
+                      <span class="icon" set:html={social.icon} />
+                    </a>
+                  ))}
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p class="no-team">⚠ No team members available. Please try again later.</p>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  /* ✅ General Section Styling */
+  .team-section {
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+  }
+
+  /* ✅ Headings & Spacing */
+  .team-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left; /* 🔥 Align to the left */
+    margin-bottom: 10px;
+  }
+
+  .team-description {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0; /* 🔥 Remove auto centering */
+    text-align: left; /* 🔥 Align text to the left */
+  }
+
+  /* 🔹 Button Wrapper - Aligns Right */
+  .btn-wrapper {
+    display: flex;
+    justify-content: flex-end; /* 🔥 Aligns button to the right */
+    margin-top: 20px;
+  }
+
+  /* 🔹 Join Our Team Button */
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition:
+      background 0.3s ease-in-out,
+      color 0.3s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
+
+  /* 🔥 Button Hover Effect */
+  .btn:hover {
+    background-color: yellow;
+    color: black;
+    transform: scale(1.05);
+  }
+
+  /* ✅ Team Grid Layout */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  /* ✅ Responsive Layout */
+  @media (max-width: 1024px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .btn {
+      margin: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+    .btn {
+      margin: auto;
+    }
+  }
+
+  /* ✅ Team Card */
+  .team-card {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between; /* Push content to top and bottom */
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+
+    padding: 20px;
+    height: 100%; /* Ensure all cards are the same height */
+  }
+
+  .team-card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* ✅ Image Wrapper */
+  .team-card-img {
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }
+
+  .team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* ✅ Badge (Role) */
+  .badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+  }
+
+  /* ✅ Custom Colors Based on Role */
+  .badge[data-role="CEO at Company"] {
+    background-color: #f4c20d;
+    color: black;
+  }
+
+  .badge[data-role="Manager"] {
+    background-color: black;
+    color: white;
+  }
+
+  .badge[data-role="Visionary"],
+  .badge[data-role="Strategist"],
+  .badge[data-role="Director"],
+  .badge[data-role="President"] {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+  }
+
+  /* ✅ Hover Effect */
+  .badge:hover {
+    background-color: yellow;
+    color: black;
+  }
+
+  /* ✅ Team Info */
+  .team-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes social icons to the bottom */
+    flex-grow: 1; /* Allows it to take full available space */
+    padding: 20px;
+  }
+
+  .team-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .team-role {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #444;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center; /* Center icons */
+    align-items: center;
+    gap: 10px;
+    margin-top: auto; /* Push icons to bottom */
+  }
+
+  /* ✅ Social Media Icon Circle */
+  .social-link {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition:
+      background 0.3s ease,
+      transform 0.2s ease;
+    text-decoration: none;
+  }
+
+  /* ✅ Hover Effects (Official Colors) */
+  .social-link[data-platform="instagram"]:hover {
+    background: #e1306c;
+  }
+
+  .social-link[data-platform="facebook"]:hover {
+    background: #1877f2;
+  }
+
+  .social-link[data-platform="twitter"]:hover {
+    background: #1da1f2;
+  }
+
+  /* ✅ Fix Icon Visibility */
+  .social-link .icon svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+  }
+
+  /* ✅ Hover Effect: Scale */
+  .social-link:hover {
+    transform: scale(1.1);
+  }
+
+  /* ✅ No Team Members Available */
+  .no-team {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: red;
+  }
+</style>

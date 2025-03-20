@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newsletter Subscription</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="newsletter-section">
+      <div class="newsletter-content">
+        <!-- Left Side - Text -->
+        <div class="newsletter-text">
+          <h2>Subscribe Our Newsletter</h2>
+          <p>Build stronger Customer Relationships with <strong>Consultalk</strong></p>
+        </div>
+
+        <!-- Right Side - Input & Button -->
+        <div class="newsletter-form">
+          <input type="email" id="newsletter-input" class="newsletter-input" placeholder="your mail address" />
+          <button class="newsletter-btn">Subscribe</button>
+        </div>
+      </div>
+
+      <!-- Decorative Elements -->
+      <div class="pattern-overlay"></div>
+      <div class="green-box"></div>
+      <div class="pattern"></div>
+    </section>
+  </body>
+</html>
+
+<style>
+  /* General Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+  }
+
+  /* Newsletter Section */
+  .newsletter-section {
+    background: #111; /* Dark background */
+    color: white;
+    padding: 100px 170px;
+    border-radius: 15px;
+    max-width: 1150px;
+    margin: 50px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    gap: 50px; /* Increased spacing between text and input */
+  }
+
+  /* Content Layout */
+  .newsletter-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Left Side Text */
+  .newsletter-text {
+    max-width: 50%;
+    padding-right: 30px; /* More space between text and input */
+  }
+
+  .newsletter-text h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .newsletter-text p {
+    font-size: 15px;
+    color: #ccc;
+  }
+
+  /* Right Side Form */
+  .newsletter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 3;
+    gap: 30px; /* More space between input and button */
+  }
+
+  /* Input Field */
+  .newsletter-input {
+    width: 280px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 30px;
+    background: white; /* White input background */
+    color: black; /* Black text inside input */
+    font-size: 16px;
+    outline: none;
+    text-align: left;
+  }
+
+  /* Subscribe Button */
+  .newsletter-btn {
+    padding: 14px 22px;
+    border-radius: 30px;
+    border: none;
+    background: #f4c20d;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .newsletter-btn:hover {
+    background: #ffdb4d;
+  }
+
+  /* Decorative Pattern - Top Right */
+
+  /* Square Pattern Background */
+  .pattern {
+    position: absolute;
+    scale: 2;
+    top: -100px;
+    right: -170px;
+    width: 250px; /* Adjust size */
+    height: 250px;
+    background: url("/images/Pattern.png") no-repeat center center;
+    background-size: contain; /* Ensures the entire image is visible */
+    opacity: 1; /* Adjust if it's too transparent */
+    transform: rotate(45deg);
+    z-index: 1; /* Ensure it's behind content */
+  }
+
+  /* Green Box - Bottom Right */
+  .green-box {
+    scale: 3;
+    position: absolute;
+    bottom: -100px;
+    right: 0;
+    width: 100px;
+    height: 80px;
+    background-color: #4caf50;
+    border-top-left-radius: 10px;
+    z-index: 2;
+    transform: rotate(45deg); /* Rotate pattern */
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .newsletter-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .newsletter-text {
+      max-width: 100%;
+    }
+
+    .newsletter-form {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .newsletter-input {
+      width: 100%;
+    }
+
+    .newsletter-btn {
+      width: 100%;
+    }
+
+    .green-box {
+      display: none; /* Hide the green box on smaller screens */
+    }
+  }
+</style>
