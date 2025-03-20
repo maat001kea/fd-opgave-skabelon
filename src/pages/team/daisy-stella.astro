@@ -1,0 +1,72 @@
+---
+import "../../styles/singleview.css";
+import Layout from "../../layouts/Layout.astro";
+
+const member = {
+  name: "Daisy Stella",
+  slug: "daisy-stella",
+  title: "Head of Marketing",
+  img: "/images/daisy.webp",
+  description_long: `
+    Daisy Stella is an experienced marketing strategist with a strong passion for branding, 
+    digital campaigns, and customer engagement. With over a decade of expertise in 
+    developing successful marketing initiatives, Daisy has helped brands gain 
+    significant visibility and customer loyalty. She thrives on creativity, data-driven 
+    decision-making, and fostering innovative strategies to drive business growth.
+  `,
+  experience: `
+    With a background in digital marketing, content strategy, and consumer psychology, 
+    Daisy has led multiple high-impact campaigns, helping businesses expand their reach 
+    and strengthen brand identity. Her expertise includes SEO optimization, social media 
+    marketing, and customer relationship management. She believes in leveraging storytelling 
+    and analytics to create compelling and results-oriented marketing strategies.
+  `,
+  social_links: [
+    { platform: "facebook", url: "https://facebook.com/daisystella", icon: "/images/Facebook.png" },
+    { platform: "instagram", url: "https://instagram.com/daisystella", icon: "/images/Instagram.png" },
+    { platform: "twitter", url: "https://twitter.com/daisystella", icon: "/images/Twitter.png" },
+    { platform: "linkedin", url: "https://linkedin.com/in/daisystella", icon: "/images/LinkedIn.png" },
+  ],
+};
+---
+
+<Layout>
+  <section class="team-profile">
+    <!-- Left Side: Image & Background -->
+    <div class="profile-image-wrapper">
+      <div class="pattern"></div>
+      <div class="green-box"></div>
+      <img src={member.img} alt={member.name} class="profile-image" />
+    </div>
+
+    <!-- Right Side: Team Member Information -->
+    <div class="profile-info">
+      <!-- 🔹 Title & Social Icons (Fixed Alignment) -->
+      <div class="profile-header">
+        <div class="profile-title">
+          <h1>{member.name}</h1>
+          <h2>{member.title}</h2>
+        </div>
+        <div class="social-icons">
+          {
+            member.social_links.map((social) => (
+              <a href={social.url} target="_blank" aria-label={social.platform} class="social-link" data-platform={social.platform}>
+                <img src={social.icon} alt={social.platform} class="social-icon" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <p class="description">{member.description_long}</p>
+
+      <hr />
+
+      <h3>Past experience</h3>
+      <p class="experience">{member.experience}</p>
+    </div>
+  </section>
+
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+</Layout>

@@ -1,0 +1,72 @@
+---
+import "../../styles/singleview.css";
+import Layout from "../../layouts/Layout.astro";
+
+const member = {
+  name: "John Carter",
+  slug: "john-carter",
+  title: "Chief Technology Officer",
+  img: "/images/john.webp",
+  description_long: `
+    John Carter is a seasoned CTO with a passion for technological innovation and business growth. 
+    With a wealth of experience in software development, cloud computing, and AI-driven solutions, 
+    John has led multiple teams to success in implementing cutting-edge technology. 
+    He is dedicated to fostering an environment of continuous learning and innovation, 
+    ensuring that the company remains at the forefront of technological advancements.
+  `,
+  experience: `
+    John has spent over 15 years in the tech industry, leading various teams in 
+    developing enterprise-grade software, optimizing IT infrastructure, and implementing 
+    scalable cloud-based solutions. His expertise lies in designing robust technology strategies, 
+    ensuring cybersecurity measures, and aligning tech development with business objectives. 
+    His leadership and problem-solving skills make him a vital part of the organization’s success.
+  `,
+  social_links: [
+    { platform: "facebook", url: "https://facebook.com/johncarter", icon: "/images/Facebook.png" },
+    { platform: "instagram", url: "https://instagram.com/johncarter", icon: "/images/Instagram.png" },
+    { platform: "twitter", url: "https://twitter.com/johncarter", icon: "/images/Twitter.png" },
+    { platform: "linkedin", url: "https://linkedin.com/in/johncarter", icon: "/images/LinkedIn.png" },
+  ],
+};
+---
+
+<Layout>
+  <section class="team-profile">
+    <!-- Left Side: Image & Background -->
+    <div class="profile-image-wrapper">
+      <div class="pattern"></div>
+      <div class="green-box"></div>
+      <img src={member.img} alt={member.name} class="profile-image" />
+    </div>
+
+    <!-- Right Side: Team Member Information -->
+    <div class="profile-info">
+      <!-- 🔹 Title & Social Icons (Fixed Alignment) -->
+      <div class="profile-header">
+        <div class="profile-title">
+          <h1>{member.name}</h1>
+          <h2>{member.title}</h2>
+        </div>
+        <div class="social-icons">
+          {
+            member.social_links.map((social) => (
+              <a href={social.url} target="_blank" aria-label={social.platform} class="social-link" data-platform={social.platform}>
+                <img src={social.icon} alt={social.platform} class="social-icon" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <p class="description">{member.description_long}</p>
+
+      <hr />
+
+      <h3>Past experience</h3>
+      <p class="experience">{member.experience}</p>
+    </div>
+  </section>
+
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+</Layout>

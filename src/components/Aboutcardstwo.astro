@@ -1,0 +1,238 @@
+---
+import ArrowRight from "../icons/arrow--right.svg";
+import Checkmark from "../icons/checkmark.svg";
+import Gear from "../icons/gear.svg";
+import Globe from "../icons/globe.svg";
+import Layers from "../icons/layers.svg";
+import Bars from "../icons/bars.svg";
+---
+
+<section class="values-section">
+  <div class="container">
+    <!-- Title & Description -->
+    <div class="section-header">
+      <span class="tag">GROWING WITH OUR CLIENTS</span>
+      <h2>Our core values & principles</h2>
+
+      <!-- Ny flex-container -->
+      <div class="header-content">
+        <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+        <a href="#" class="button">Get in touch</a>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="values-grid">
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="icon-container">
+          <Layers />
+        </div>
+        <h3>Creative Ideas</h3>
+        <p>Explore innovative strategies tailored to your goals. Unlock unique solutions that inspire growth and creativity. Drive impactful change.</p>
+        <a href="#">Read More <ArrowRight /></a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="icon-container">
+          <Bars />
+        </div>
+        <h3>Best Features</h3>
+        <p>Deliver advanced tools designed for seamless integration. Optimize workflows with cutting-edge technology.</p>
+        <a href="#">Read More <ArrowRight /></a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="icon-container">
+          <Globe />
+        </div>
+        <h3>Experience</h3>
+        <p>Leverage years of proven expertise across diverse industries. Empower your business with our skilled professionals. Achieve sustainable success.</p>
+        <a href="#">Read More <ArrowRight /></a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <div class="icon-container">
+          <Gear />
+        </div>
+        <h3>Easy Solutions</h3>
+        <p>Streamline your challenges with simple, effective solutions. Ensure hassle-free implementation for measurable results.</p>
+        <a href="#">Read More <ArrowRight /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* General Section Styling */
+  .values-section {
+    background: #f8f8f8;
+    padding: 80px 20px;
+    text-align: start;
+  }
+
+  .ap {
+    text-align: start;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Header Styling */
+  .section-header .tag {
+    display: inline-block;
+    background: #ffcc4d;
+    color: #222;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+  }
+
+  .section-header h2 {
+    font-size: 30px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .section-header p {
+    color: #666;
+    max-width: 600px;
+    margin: 10px 0 30px 0; /* Fjern auto-centering */
+    text-align: left;
+  }
+
+  /* Grid Layout */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Juster afstanden mellem tekst og knap */
+    margin-top: 2px;
+    margin-bottom: 2%;
+  }
+
+  .header-content p {
+    color: #666;
+    max-width: 600px;
+    margin-top: 0; /* Fjern ekstra top-margin */
+    margin-bottom: 10px; /* Juster afstanden til næste element */
+    line-height: 1.5; /* Reducer linjeafstanden hvis nødvendigt */
+  }
+
+  .header-content .button {
+    flex-shrink: 0; /* Sørg for, at knappen ikke bliver klemt */
+  }
+
+  /* Cards */
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+
+  .card h3 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .card p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 10px 0;
+  }
+
+  /* Icons */
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black; /* Sort baggrund */
+    width: 50px; /* Justér efter behov */
+    height: 50px;
+    border-radius: 50%; /* Gør det til en cirkel */
+    margin-bottom: 15px; /* Afstand til titlen */
+  }
+
+  /* SVG-ikoner bliver hvide */
+  .icon-container svg {
+    width: 24px; /* Justér ikonstørrelse efter behov */
+    height: 24px;
+    fill: white; /* Farver ikonerne hvide */
+  }
+
+  /* Read More Link */
+  .card a {
+    display: inline-flex;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .card a svg {
+    width: 12px;
+    margin-left: 5px;
+    transition: transform 0.2s;
+  }
+
+  .card a:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* Call to Action Button */
+  .cta-button {
+    margin-top: 30px;
+    text-align: end;
+  }
+
+  .button {
+    background: black;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .button:hover {
+    background: #222;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .values-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start; /* Juster venstrejusteret */
+    }
+
+    .header-content .button {
+      margin-top: 10px;
+    }
+  }
+</style>

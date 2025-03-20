@@ -1,0 +1,70 @@
+---
+import "../../styles/singleview.css";
+import Layout from "../../layouts/Layout.astro";
+
+const member = {
+  name: "Ryan Jackson",
+  slug: "ryan-jackson",
+  title: "Director",
+  img: "https://frontend-design-theme.netlify.app/images/employees/ryan.webp",
+  description_long: `
+    Ryan Jackson is a dynamic director known for his strategic vision and precision 
+    in aligning organizational goals with long-term growth. He is dedicated to driving 
+    innovation and excellence in his team, creating a culture focused on collaboration 
+    and continuous improvement.
+  `,
+  experience: `
+    Ryan Jackson has experience with project management, business development, and strategic planning. 
+    His ability to think strategically and execute with precision has led to significant growth and success. 
+    Ryan is passionate about fostering collaboration and ensuring that his team is aligned with the company’s 
+    long-term objectives.
+  `,
+  social_links: [
+    { platform: "facebook", url: "#", icon: "/images/Facebook.png" },
+    { platform: "instagram", url: "#", icon: "/images/Instagram.png" },
+    { platform: "twitter", url: "#", icon: "/images/Twitter.png" },
+    { platform: "linkedin", url: "#", icon: "/images/LinkedIn.png" },
+  ],
+};
+---
+
+<Layout>
+  <section class="team-profile">
+    <!-- Left Side: Image & Background -->
+    <div class="profile-image-wrapper">
+      <div class="pattern"></div>
+      <div class="green-box"></div>
+      <img src={member.img} alt={member.name} class="profile-image" />
+    </div>
+
+    <!-- Right Side: Team Member Information -->
+    <div class="profile-info">
+      <!-- 🔹 Title & Social Icons (Fixed Alignment) -->
+      <div class="profile-header">
+        <div class="profile-title">
+          <h1>{member.name}</h1>
+          <h2>{member.title}</h2>
+        </div>
+        <div class="social-icons">
+          {
+            member.social_links.map((social) => (
+              <a href={social.url} target="_blank" aria-label={social.platform} class="social-link" data-platform={social.platform}>
+                <img src={social.icon} alt={social.platform} class="social-icon" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <p class="description">{member.description_long}</p>
+
+      <hr />
+
+      <h3>Past experience</h3>
+      <p class="experience">{member.experience}</p>
+    </div>
+  </section>
+
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+</Layout>

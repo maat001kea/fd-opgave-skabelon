@@ -25,9 +25,9 @@ const getImageUrl = (image) => {
           <div class="team-card">
             <div class="team-card-img">
               <img src={getImageUrl(member?.img)} alt={member.name || "No Name"} class="team-image" />
-              <div class="badge" data-role={member.title}>
+              <a href={`/team/${member.slug}`} class="badge" data-role={member.title}>
                 {member.title}
-              </div>
+              </a>
             </div>
 
             <div class="team-info">

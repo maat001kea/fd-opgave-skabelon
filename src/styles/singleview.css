@@ -1,0 +1,160 @@
+General Styling
+
+body {
+    font-family: "Arial", sans-serif;
+    background: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Profile Layout */
+  .team-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+    gap: 60px;
+  }
+  
+  /* Left Side: Image & Background */
+  .profile-image-wrapper {
+    position: relative;
+    width: 520px;
+    height: 350px;
+  }
+  
+  .profile-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Background Design */
+  .pattern {
+    position: absolute;
+    top: -50px;
+    left: -100px;
+    width: 440px;
+    height: 440px;
+    background: url("/images/Pattern.png") no-repeat center;
+    background-size: cover;
+    z-index: -2;
+  }
+  
+  .green-box {
+    position: absolute;
+    top: -20px;
+    left: -30px;
+    width: 250px;
+    height: 180px;
+    background: #4caf50;
+    border-radius: 10px;
+    z-index: -1;
+  }
+  
+  /* Right Side: Info Section */
+  .profile-info {
+    max-width: 600px;
+    margin-top: 5%;
+  }
+
+  /* 🔹 Title & Social Icons Layout */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  /* 🔹 Reduce space between Name & Title */
+.profile-header h1 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 3px; /* 🔥 Reduced from default spacing */
+}
+
+.profile-header h2 {
+    font-size: 16px;
+    color: gray;
+    font-weight: 600;
+    margin-top: 0; /* 🔥 Remove extra space */
+}
+
+  
+  h1 {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: 18px;
+    color: gray;
+  }
+  
+  .description {
+    margin-top: 15px;
+    color: #555;
+    line-height: 1.7;
+  }
+  
+  hr {
+    margin: 20px 0;
+    border: 0.5px solid #ddd;
+  }
+  
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .experience {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .social-link {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    background: black; /* Keeps background color for contrast */
+    padding: 5px;
+  }
+  
+  .social-icon {
+    width: 24px; /* Adjust icon size */
+    height: 24px;
+    object-fit: contain;
+  }
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .team-profile {
+      flex-direction: column;
+      text-align: center;
+      
+    }
+  
+    .profile-image-wrapper {
+      width: 250px;
+      height: 280px;
+    }
+    .profile-info {
+       
+        margin-top: 15%;
+      }
+  }
+  
